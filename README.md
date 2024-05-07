@@ -1,11 +1,19 @@
- ###  DATE: 
+**INTERFACING-ANALOG-INPUT-SENSOR-POT-WITH-ARDUINO**
+ 
+**DATE : 22-02-2024**
 
-###  NAME: 
-###  ROLL NO :
-###  DEPARTMENT: 
 
-**AIM**:  To interface a Analog  input (angular displacement sensor POT) and scale the values up on change in the input.
+**NAME : PREMJI P**
 
+
+**ROLLNUMBER : 212221043004**
+
+
+**DEPARTMENT: ARTIFICIAL INTELLIGENCE AND DATA SCIENCE**
+
+
+**AIM**:  
+To interface a Analog  input (angular displacement sensor POT) and scale the values up on change in the input.
 
 **COMPONENTS REQUIRED:**
 1.	10 KΩPOT
@@ -16,20 +24,17 @@
 6.	LED of choice 
 **
 
-
 **THEORY**: 
-
 **Analog signals:**
-
 Analog signals – directly measurable quantities in terms of some other quantity.
-Examples:
+**Examples:**
 1. Thermometer – mercury height rises as temperature rises
 2. Car Speedometer – Needle moves farther right as you accelerate
 3. Stereo – Volume increases as you turn the knob
 Reason for conversion of analog to digital quantity is that as the controller or any microprocessor works with digital signals in the form of 0 and 1s, in order to make the signal compatible  most of the analog signals are converted into its equivalent digital level signals using an analog to digital converter .
 Quantizing - breaking down analog value is a set of finite states
 Encoding - assigning a digital word or number to each state and matching it to the input signal
- There are two ways to best improve accuracy of A/D conversion:
+There are two ways to best improve accuracy of A/D conversion:
 Increasing the resolution which improves the accuracy in measuring the amplitude of the analog signal.
 Increasing the sampling rate which increases the maximum frequency that can be measured.
 General specifications of analog sensor
@@ -38,20 +43,13 @@ General specifications of analog sensor
 	3.Linearity
 	4.Compatiblity
 	5. signal conversion capability
-
 **Potentiometer**
 A potentiometer, informally a pot, is a three-terminal resistor with a sliding or rotating contact that forms an adjustable voltage divider. If only two terminals are used, one end and the wiper, it acts as a variable resistor or rheostat.
 Potentiometers are commonly used to control electrical devices such as volume controls on audio equipment. Potentiometers operated by a mechanism can be used as position transducers, for example, in a joystick. Potentiometers are rarely used to directly control significant power (more than a watt), since the power dissipated in the potentiometer would be comparable to the power in the controlled load
 CIRCUIT DIAGRAM
 
-
-
-
-
 ![image](https://user-images.githubusercontent.com/36288975/163530788-eec3cdc3-95e8-4d2d-8349-6d0ea4c9439c.png)
 
-**FIGURE -01
-**
 
 **PROCEDURE:**
 
@@ -65,30 +63,57 @@ CIRCUIT DIAGRAM
 8.	Upload the program and check for the physical working. 
 9.	Ensure safety before powering up the device 
 
+**PROGRAM:** 
+```
+int led=4;
+int sensorpot;
+void setup()
+{
+  pinMode(led, OUTPUT);
+  Serial.begin(9600);
+}
+
+void loop()
+{
+  sensorpot=analogRead(A0);
+  //Serial.print("data=");
+  Serial.println(sensorpot);
+  delay(500);
+  if(sensorpot>500)
+  {
+    digitalWrite(led,HIGH);
+      delay(100);
+    digitalWrite(led,LOW);
+      delay(100);
+  } 
+  else
+  {
+    digitalWrite(led,LOW);
+      delay(100);
+  }
+}
+```
 
 
-**PROGRAM** 
- 
+
+**SIMULATION OUTPUT:** 
+
+**Circuit View:**
+
+![Screenshot 2024-02-22 110956](https://github.com/Priyanka1846/EXPERIMENT-NO--03-INTERFACING-ANALOG-INPUT-SENSOR-POT-WITH-ARDUINO-/assets/139425809/1c9e9d30-76c8-4c3f-854a-c71c35757503)
 
 
 
+**Schematic View:**
+
+![Screenshot 2024-02-22 111134](https://github.com/Priyanka1846/EXPERIMENT-NO--03-INTERFACING-ANALOG-INPUT-SENSOR-POT-WITH-ARDUINO-/assets/139425809/19d9ccf4-e759-47d3-ba1c-535217da5e46)
 
 
 
+**Serial Monitor:**
 
+![image](https://github.com/Priyanka1846/EXPERIMENT-NO--03-INTERFACING-ANALOG-INPUT-SENSOR-POT-WITH-ARDUINO-/assets/139425809/8ad4562f-72bd-42b9-a925-5bfb48289e37)
 
+**RESULT:** 
 
-**
-**Simulation output:** 
-**
-
-
-[My image](username.github.com/repository/img/image.jpg)
-
-
-
-
-
-
-
-**RESULT: ** Arduino uno analog input functioning is learned and interfaced with digital input switch .
+Arduino uno analog input functioning is learned and interfaced with digital input switch .
